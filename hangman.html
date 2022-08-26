@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="./dist/styles.css" rel="stylesheet">
+  <title>hangman_game_vanilla-js</title>
+</head>
+<body>
+
+
+<h1>BEFORE START GUESSING, CHOOSE PLAYERS</h1>
+<br>
+
+
+<div class="box">
+<select>
+    <option>Player Guesser</option>
+    <option>Option 2</option>
+    <option>Option 3</option>
+    <option>Option 4</option>
+    <option>Option 5</option>
+  </select>
+</div>
+
+<div class="box2">
+  <select>
+    <option>Player  Giver</option>
+    <option>Option 2</option>
+    <option>Option 3</option>
+    <option>Option 4</option>
+    <option>Option 5</option>
+  </select>
+  <br>
+</div>
+<br>
+<label for="secretWord">ENTER SECRETE WORD</label>
+<input type="text" id="secretWord" class="secretWord" name="secretWord">
+
+<button class="buttons" id="start-game">main menu</button>
+<button class="buttons" id="new-game">Start a game</button>
+<div id="container">
+  <div class="board">
+    <div class="hangman-word">
+      <!-- display returned hangman string -->
+    </div>
+    <div class="remaining-guesses">
+      <span class="remaining">8 <!-- don't forget to update! --> </span> guesses left
+    </div>
+
+    <div class="console">
+      <input type="text"  maxlength=1 class="letter"> </input>
+      <button id="guess">Try</button>
+    </div>
+    <div class="attempts"></div>
+  </div>
+  <br/>
+
+</div>
+<script src="./dist/bundle.js"></script>
+</body>
+</html>

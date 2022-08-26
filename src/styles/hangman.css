@@ -1,0 +1,75 @@
+
+
+
+input.error {
+    border: 2px solid #da5754;
+}
+
+span.error {
+    color: #da5754;
+}
+
+.remaining-guesses {
+    padding-top: 30px;
+    font-size: 1.5em;
+}
+
+
+.letter {
+    height: 2.2em;
+    font-size: 2em;
+    width: 80px;
+    text-align: center;
+    padding: 5px;
+}
+
+.buttons {
+    padding: 10px;
+    margin: 5px;
+    border: none;
+    font-size: 1.4em;
+}
+
+.correct {
+    color: #08a932;
+}
+
+.wrong {
+    color: #da5754;
+}
+
+.attempts {
+    font-size: 2em;
+    margin-top: 50px;
+    min-height: 50px;
+}
+
+#new-game {
+    padding: 10px;
+    margin-top: 10px;
+    text-decoration: none;
+}
+
+.attempts span:not(:last-child):after {
+    color: black;
+    content: ",";
+}
+
+.console {
+    width: 200px;
+    margin: 100px auto 50px;
+}
+
+.hangman-word {
+    text-align: center;
+    font-size: 2.5em;
+    letter-spacing: 0.1em;
+    font-family: "Lucida Console", Monaco, monospace;
+    font-weight: bold;
+    color: #b5b5b5;
+}
+
+.board {
+    margin: 20px;
+    text-align: center;
+}
