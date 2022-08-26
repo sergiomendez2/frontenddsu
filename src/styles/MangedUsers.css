@@ -27,7 +27,7 @@ h1 {
 #txt-name{
     border: 2px solid black;
     border-radius: 0.25rem;
-    background-color: #4cb5ae;
+    background-color: white;
     height: 30px;
     width: 200px;
     padding: 5px 10px;
@@ -38,22 +38,21 @@ h1 {
     top: 50%;
     transform: translateY(-50%);
     left: 0.75rem;
-    color: #ccc;
+    color: black;
     padding: 0 0.125rem;
     transition: 0.4s;
-    background-color: #4cb5ae;
 }
 
 #txt-name:focus {
-    border: 2px solid #074a4d;
+    border: 2px solid white;
 }
 
 #txt-name:focus + label,
 #txt-name:not(:placeholder-shown) + label {
   top: 0;
   transition: 0.3s;
-  background-color: #4cb5ae;
-  color: #1b1e24;
+  background-color: white;
+  color: black;
 }
 
 .type-player {
@@ -94,13 +93,13 @@ h1 {
     top: 0;
     right: 0;
     padding: 0 1em;
-    background: #033a3d;
+    background: #0563af;
     cursor:pointer;
     pointer-events:none;
     transition:.25s all ease;
  }
  .select:hover::after {
-    color: #23b499;
+    color: white;
  }
 
  /*----Button----*/
