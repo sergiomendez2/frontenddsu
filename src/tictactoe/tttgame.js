@@ -1,3 +1,10 @@
+import sendHttpRequest from "../httprequest/HTTPRequest";
+
+let turnId;
+let playerX;
+let playerO;
+
+
 const X_CLASS = 'x'
 const CIRCLE_CLASS = 'circle'
 const WINNING_COMBINATIONS = [
@@ -17,11 +24,41 @@ const restartButton = document.getElementById('restartButton')
 const winningMessageTextElement = document.querySelector('[data-winning-message-text]')
 let circleTurn
 
-startGame()
 
-restartButton.addEventListener('click', startGame)
+try {
+  restartButton.addEventListener('click', startGame)
+}catch(e) {
+    console.log(e);
+}
+
+async function createTicTacToeTurn(){
+
+  const tttTurn = {
+    finished: false,
+    playerX: {
+      id: document.getElementById('playerX').value,
+      name: document.getElementById('playerX').options[document.getElementById('playerX').selectedIndex].text
+    },
+    playerO: {
+      id: document.getElementById('playerO').value,
+      name: document.getElementById('playerO').options[document.getElementById('playerO').selectedIndex].text
+    },
+    isDraw: false
+  }
+
+  const turnedCreated = await sendHttpRequest(
+      'POST',
+      'http://localhost:9090/app/v1/startGameTTT',tttTurn);
+
+  turnId = turnedCreated.id_turn;
+  playerO = turnedCreated.playerO;
+  playerX = turnedCreated.playerX;
+  console.log(turnId+" "+playerO.name+" "+playerX.name);
+  startGame();
+}
 
 function startGame() {
+
   circleTurn = false
   cellElements.forEach(cell => {
     cell.classList.remove(X_CLASS)
@@ -49,11 +86,32 @@ function handleClick(e) {
 
 function endGame(draw) {
   if (draw) {
+    /*some logic here*/
+    const tttTurnCompleted = {
+        id_turn: turnId,
+        finished: true,
+        winner: null,
+        draw:true
+    };
+    sendHttpRequest( 'PUT', 'http://localhost:9090/app/v1/updateTurnTTT',tttTurnCompleted);
     winningMessageTextElement.innerText = 'Draw!'
+
   } else {
-    winningMessageTextElement.innerText = `${circleTurn ? "O's" : "X's"} Wins!`
+    winningMessageTextElement.innerText = `${circleTurn ? "O's":"X's"} Wins!`
+    if(!draw) {
+        const tttTurnCompleted = {
+            id_turn: turnId,
+            finished: true,
+            winner: circleTurn ? playerO : playerX,
+            isDraw:false
+        };
+        sendHttpRequest( 'PUT', 'http://localhost:9090/app/v1/updateTurnTTT',tttTurnCompleted);
+    }
   }
   winningMessageElement.classList.add('show')
+  setTimeout(() => {
+    document.location.reload();
+  }, 3000);
 }
 
 function isDraw() {
@@ -88,4 +146,4 @@ function checkWin(currentClass) {
   })
 }
 
-export default startGame;
+export  {createTicTacToeTurn};

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="./dist/styles.css" rel="stylesheet">
+  <title>Statistics</title>
+</head>
+<body>
+
+<a class="back" href="./index.html"> Back to home</a>
+<div class="container">
+
+  <div class="title">
+    <img src="./score.png" alt="image" style="width: 10%; position: center">
+    <br>
+    <h1>Statistics</h1>
+  </div>
+
+  <table class="st-container">
+    <td>
+      <div class="filter">
+        <label>Select game:</label>
+        <select class="type-player" name="type-player" id="typeGame">
+          <option selected disabled>Filter by type of game:</option>
+          <option value="All">All</option>
+          <option value="TicTacToe">TicTacToe</option>
+          <option value="HangMan">HangMan</option>
+        </select>
+        <div class="form-action-buttons">
+          <input type="submit" value="Submit" id="filter-game" style=" background-color:dodgerblue;">
+        </div>
+      </div>
+
+    </td>
+    <td>
+      <table class="list" id="statisticsList">
+        <thead class="columnTitle">
+        <tr>
+          <th>ID</th>
+          <th>Winner</th>
+          <th>Loser</th>
+          <th>TypeGame</th>
+        </tr>
+        </thead>
+        <tbody id="statistics">
+
+        </tbody>
+      </table>
+    </td>
+  </table>
+
+</div>
+<script src="./dist/bundle.js"></script>
+</body>
+</html>

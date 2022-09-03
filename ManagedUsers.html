@@ -10,61 +10,55 @@
 </head>
 <body>
 
-<div class="container">
-    <h1>User's Management</h1>
 
-    <div class="form">
-      <p>Update data:</p>
-      <div class="inputbox">
-        <input type="text" id="txt-name" placeholder=" ">
-        <label for="txt-name">Player's name</label>
-      </div>
+<h1>User's Management</h1>
 
-      <div class="select">
-        <select class="type-player" id="type-player">
-          <option selected disabled>Choose a type of player</option>
-          <option value="b">Bot</option>
-          <option value="h">Human</option>
-        </select>
-      </div>
-    </div>
+<table class="container">
+  <tr>
+    <td  class="form">
+      <form  autocomplete="off">
+        <div>
+          <label>PlayerID*</label><label class="validation-error hide" id="fullNameValidationError">This field is required.</label>
+          <input type="number" name="playerID" id="playerID">
+        </div>
+        <div>
+          <label>Name</label>
+          <input type="text" name="fullName" id="fullName">
+        </div>
+        <div>
+          <label>Type of player</label>
+          <select class="type-player" name="type-player" id="typePlayer">
+            <option selected disabled>Choose a type of player</option>
+            <option value="Bot">Bot</option>
+            <option value="Human">Human</option>
+          </select>
+        </div>
 
-    <div class="button-container">
-      <button class="normal-button">Add user</button><br />
-      <button class="normal-button">Show/Refresh</button><br />
-      <button class="normal-button">Update user</button><br />
-      <button class="delete-button">Delete user</button><br />
-      <a href="./index.html">Back to Home</a><br><br><br>
-    </div>
+        <div class="form-action-buttons">
+          <input type="submit" value="Submit" id="create-player" style=" background-color:dodgerblue;">
+          <input type="submit" value="Delete" id="delete-player" style=" background-color:darkred">
+          <input type="submit" value="Update" id="update-player" style=" background-color:orange">
+        </div>
 
-    <div class="table-content">
-      <div class="table-title">
-        <h3>Available Players</h3>
-      </div>
-      <table class="table-fill">
-        <thead>
-          <tr>
-            <th class="text-left">ID</th>
-            <th class="text-left">Player's Name</th>
-            <th class="text-left">Type Of Player</th>
-          </tr>
+      </form>
+    </td>
+    <td>
+      <table class="list" id="playerList">
+        <thead class="columnTitle">
+        <tr>
+          <th>PlayerID</th>
+          <th>Name</th>
+          <th>Type of player</th>
+        </tr>
         </thead>
-        <tbody class="table-hover">
-          <tr>
-            <td class="text-left">January</td>
-            <td class="text-left">$ 50,000.00</td>
-            <td class="text-left">$ 50,000.00</td>
-          </tr>
-          <tr>
-            <td class="text-left">February</td>
-            <td class="text-left">$ 10,000.00</td>
-            <td class="text-left">$ 50,000.00</td>
-          </tr>
-
+        <tbody id="player-list">
         </tbody>
       </table>
-    </div>
-  </div>
+    </td>
+  </tr>
+
+</table>
+<a class="back" href="./index.html" style="width:250px;"> Back to home</a>
 <script src="./dist/bundle.js"></script>
 </body>
 </html>

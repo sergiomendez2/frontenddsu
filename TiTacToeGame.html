@@ -6,9 +6,29 @@
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="./dist/styles.css" rel="stylesheet">
-  <title>hangman_game_vanilla-js</title>
+  <title>TicTacToe-Game</title>
 </head>
 <body>
+
+            <section class="container" >
+                <div class="dropdown">
+                    <select name="one" class="dropdown-select" id="playerX" style="width: 200px; height: 100%;">
+                        <option value="">Player X…</option>
+                    </select>
+                </div>
+                <div class="dropdown dropdown-dark">
+                    <select name="two" class="dropdown-select" id="playerO">
+                        <option value="">Player O …</option>
+                    </select>
+                </div>
+                <div class="form-action-buttons">
+                    <input type="submit" value="Create Turn" id="ttt-new-game"
+                           style=" width:150px;  background-color:dodgerblue;">
+                </div>
+
+            </section>
+
+<br>
 
 <div class="board" id="board">
     <div class="cell" data-cell></div>
@@ -21,13 +41,14 @@
     <div class="cell" data-cell></div>
     <div class="cell" data-cell></div>
   </div>
+
   <div class="winning-message" id="winningMessage">
     <div data-winning-message-text></div>
     <button id="restartButton">Restart</button>
   </div>
-<a href="./index.html">Back to Home</a>
 
 
+            <a class="back" style="width: 300px; text-align: center;" href="./index.html"> Back to Home</a>
 
 <script src="./dist/bundle.js"></script>
 </body>

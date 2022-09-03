@@ -1,5 +1,18 @@
+:root {
+    --color-dark:  #161616;
+    --color-ocean:  #416dea;
+    --color-grass: #3dd28d;
+    --color-snow: #FFFFFF;
+    --color-salmon: #F32C52;
+    --color-sun: #feee7d;
+    --color-alge: #7999a9;
+    --color-flower: #353866;
+    --color-smoke: #e4e4e4;
 
+    --borderRadius: 36px;
 
+    --font-face: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
 
 input.error {
     border: 2px solid #da5754;
@@ -30,14 +43,6 @@ span.error {
     font-size: 1.4em;
 }
 
-.correct {
-    color: #08a932;
-}
-
-.wrong {
-    color: #da5754;
-}
-
 .attempts {
     font-size: 2em;
     margin-top: 50px;
@@ -56,19 +61,23 @@ span.error {
 
 .console {
     width: 200px;
-    margin: 10px auto 50px;
+    margin: 0 auto 600px;
 }
 
 .hangman-word {
     text-align: center;
-    font-size: 2.5em;
+    font-size: 2em;
     letter-spacing: 0.1em;
+    position: center;
     font-family: "Lucida Console", Monaco, monospace;
     font-weight: bold;
-    color: #b5b5b5;
+    padding-left: -5px;
+    color: #0563af;
 }
 
 .board {
     margin: 20px;
     text-align: center;
 }
+
+
