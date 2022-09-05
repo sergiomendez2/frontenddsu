@@ -44,7 +44,7 @@ async function createTurn() {
         hangedMan: false
     }
     const turnCreate =  await (0,_HTTPRequest__WEBPACK_IMPORTED_MODULE_0__["default"])(
-        'POST', 'http://localhost:9090/app/v1/startGame', turn);
+        'POST', 'http://192.168.0.7/:9090/app/v1/startGame', turn);
     turnId = turnCreate.id_turn;
     document.getElementById('secretWord').value = '';
 }
@@ -53,7 +53,7 @@ async function getSecretWord() {
 
     const responseData = await (0,_HTTPRequest__WEBPACK_IMPORTED_MODULE_0__["default"])(
         'GET',
-        'http://localhost:9090/app/v1/getWord',
+        'http://192.168.0.7:9090/app/v1/getWord',
     );
     const word = responseData;
 
@@ -71,7 +71,7 @@ async function guessSecretWord() {
                 id_turn: turnId
             }
             const responseData = await
-                (0,_HTTPRequest__WEBPACK_IMPORTED_MODULE_0__["default"])('POST', `http://localhost:9090/app/v1/guessLetter/${letter}`, hangManTurn);
+                (0,_HTTPRequest__WEBPACK_IMPORTED_MODULE_0__["default"])('POST', `http://192.168.0.7:9090/app/v1/guessLetter/${letter}`, hangManTurn);
             isLetterExist = responseData;
             if (isLetterExist) {
                 getSecretWord();
@@ -106,7 +106,7 @@ async function guessSecretWord() {
 async function isWinner() {
     const responseData = await (0,_HTTPRequest__WEBPACK_IMPORTED_MODULE_0__["default"])(
         'GET',
-        'http://localhost:9090/app/v1/StillNotWinner'
+        'http://192.168.0.7:9090/app/v1/StillNotWinner'
     );
     isNotWinner = responseData;
     if(isNotWinner === false){
@@ -131,7 +131,7 @@ async function updateTurn() {
         hangedMan: wasLoser
     }
 
-    ;(0,_HTTPRequest__WEBPACK_IMPORTED_MODULE_0__["default"])('PUT', 'http://localhost:9090/app/v1/updateTurn', HangManTurn);
+    ;(0,_HTTPRequest__WEBPACK_IMPORTED_MODULE_0__["default"])('PUT', 'http://192.168.0.7:9090/app/v1/updateTurn', HangManTurn);
 
 }
 
@@ -222,7 +222,7 @@ let playerIDList = [];
 async function getAllPlayers() {
     const responseData = await (0,_HTTPRequest__WEBPACK_IMPORTED_MODULE_0__["default"])(
         'GET',
-        'http://localhost:9090/app/v1/getListOfPlayers',
+        'http://192.168.0.7:9090/app/v1/getListOfPlayers',
     );
     const list = responseData;
 
@@ -238,7 +238,7 @@ async function getAllPlayers() {
 async function listPlayersInTable() {
     const responseData = await (0,_HTTPRequest__WEBPACK_IMPORTED_MODULE_0__["default"])(
         'GET',
-        'http://localhost:9090/app/v1/getListOfPlayers',
+        'http://192.168.0.7:9090/app/v1/getListOfPlayers',
     );
     const list = responseData;
 
@@ -290,13 +290,13 @@ async function createPlayer() {
     }
    ;(0,_HTTPRequest__WEBPACK_IMPORTED_MODULE_0__["default"])(
        'POST',
-       'http://localhost:9090/app/v1/createPlayer', Player);
+       'http://192.168.0.7:9090/app/v1/createPlayer', Player);
 
 }
 
 async function deletePlayer() {
     const id = document.getElementById('playerID').value;
-    (0,_HTTPRequest__WEBPACK_IMPORTED_MODULE_0__["default"])('DELETE', `http://localhost:9090/app/v1/deletePlayer/${id}`);
+    (0,_HTTPRequest__WEBPACK_IMPORTED_MODULE_0__["default"])('DELETE', `http://192.168.0.7:9090/app/v1/deletePlayer/${id}`);
 }
 
 async function updatePlayer() {
@@ -316,7 +316,7 @@ async function updatePlayer() {
             name: document.getElementById('typePlayer').options[document.getElementById('typePlayer').selectedIndex].text
         }
     }
-    ;(0,_HTTPRequest__WEBPACK_IMPORTED_MODULE_0__["default"])('PUT', 'http://localhost:9090/app/v1/updatePlayer', Player);
+    ;(0,_HTTPRequest__WEBPACK_IMPORTED_MODULE_0__["default"])('PUT', 'http://192.168.0.7:9090/app/v1/updatePlayer', Player);
 }
 
 
@@ -338,7 +338,7 @@ const select2 = document.getElementById('playerO');
 async function getTicTacToePlayers() {
     const response = await (0,_HTTPRequest__WEBPACK_IMPORTED_MODULE_0__["default"])(
         'GET',
-        'http://localhost:9090/app/v1/getListOfPlayers',
+        'http://192.168.0.7:9090/app/v1/getListOfPlayers',
     );
     const list = response;
 
@@ -442,7 +442,7 @@ async function getPlayersBYTypeGame() {
     typeGame = document.getElementById('typeGame').value;
     const responseData = await (0,_HTTPRequest__WEBPACK_IMPORTED_MODULE_0__["default"])(
         'GET',
-        `http://localhost:9090/app/v1/getStatisticsByTypeGame/${typeGame}`,
+        `http://192.168.0.7:9090/app/v1/getStatisticsByTypeGame/${typeGame}`,
     );
     statis = responseData;
 
@@ -455,7 +455,7 @@ async function getPlayersBYTypeGame() {
 async function getAllStatistics() {
     const responseData = await (0,_HTTPRequest__WEBPACK_IMPORTED_MODULE_0__["default"])(
         'GET',
-        'http://localhost:9090/app/v1/getStatisticList'
+        'http://192.168.0.7:9090/app/v1/getStatisticList'
     );
     statis = responseData;
 
@@ -565,7 +565,7 @@ async function createTicTacToeTurn(){
 
   const turnedCreated = await (0,_httprequest_HTTPRequest__WEBPACK_IMPORTED_MODULE_0__["default"])(
       'POST',
-      'http://localhost:9090/app/v1/startGameTTT',tttTurn);
+      'http://192.168.0.7:9090/app/v1/startGameTTT',tttTurn);
 
   turnId = turnedCreated.id_turn;
   playerO = turnedCreated.playerO;
@@ -609,7 +609,7 @@ function endGame(draw) {
         winner: null,
         draw:true
     };
-    (0,_httprequest_HTTPRequest__WEBPACK_IMPORTED_MODULE_0__["default"])( 'PUT', 'http://localhost:9090/app/v1/updateTurnTTT',tttTurnCompleted);
+    (0,_httprequest_HTTPRequest__WEBPACK_IMPORTED_MODULE_0__["default"])( 'PUT', 'http://192.168.0.7:9090/app/v1/updateTurnTTT',tttTurnCompleted);
     winningMessageTextElement.innerText = 'Draw!'
 
   } else {
@@ -621,7 +621,7 @@ function endGame(draw) {
             winner: circleTurn ? playerO : playerX,
             isDraw:false
         };
-        (0,_httprequest_HTTPRequest__WEBPACK_IMPORTED_MODULE_0__["default"])( 'PUT', 'http://localhost:9090/app/v1/updateTurnTTT',tttTurnCompleted);
+        (0,_httprequest_HTTPRequest__WEBPACK_IMPORTED_MODULE_0__["default"])( 'PUT', 'http://192.168.0.7:9090/app/v1/updateTurnTTT',tttTurnCompleted);
     }
   }
   winningMessageElement.classList.add('show')
