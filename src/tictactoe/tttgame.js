@@ -53,7 +53,6 @@ async function createTicTacToeTurn(){
   turnId = turnedCreated.id_turn;
   playerO = turnedCreated.playerO;
   playerX = turnedCreated.playerX;
-  console.log(turnId+" "+playerO.name+" "+playerX.name);
   startGame();
 }
 
@@ -111,7 +110,7 @@ function endGame(draw) {
   winningMessageElement.classList.add('show')
   setTimeout(() => {
     document.location.reload();
-  }, 3000);
+  }, 2000);
 }
 
 function isDraw() {
