@@ -6,7 +6,7 @@ const select2 = document.getElementById('playerO');
 async function getTicTacToePlayers() {
     const response = await sendHttpRequest(
         'GET',
-        'http://localhost:9090/app/v1/getListOfPlayers',
+        'http://192.168.0.7:9090/app/v1/getListOfPlayers',
     );
     const list = response;
 

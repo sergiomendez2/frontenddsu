@@ -29,7 +29,7 @@ async function createTurn() {
         hangedMan: false
     }
     const turnCreate =  await sendHttpRequest(
-        'POST', 'http://localhost:9090/app/v1/startGame', turn);
+        'POST', 'http://192.168.0.7/:9090/app/v1/startGame', turn);
     turnId = turnCreate.id_turn;
     document.getElementById('secretWord').value = '';
 }
@@ -38,7 +38,7 @@ async function getSecretWord() {
 
     const responseData = await sendHttpRequest(
         'GET',
-        'http://localhost:9090/app/v1/getWord',
+        'http://192.168.0.7:9090/app/v1/getWord',
     );
     const word = responseData;
 
@@ -56,7 +56,7 @@ async function guessSecretWord() {
                 id_turn: turnId
             }
             const responseData = await
-                sendHttpRequest('POST', `http://localhost:9090/app/v1/guessLetter/${letter}`, hangManTurn);
+                sendHttpRequest('POST', `http://192.168.0.7:9090/app/v1/guessLetter/${letter}`, hangManTurn);
             isLetterExist = responseData;
             if (isLetterExist) {
                 getSecretWord();
@@ -91,7 +91,7 @@ async function guessSecretWord() {
 async function isWinner() {
     const responseData = await sendHttpRequest(
         'GET',
-        'http://localhost:9090/app/v1/StillNotWinner'
+        'http://192.168.0.7:9090/app/v1/StillNotWinner'
     );
     isNotWinner = responseData;
     if(isNotWinner === false){
@@ -116,7 +116,7 @@ async function updateTurn() {
         hangedMan: wasLoser
     }
 
-    sendHttpRequest('PUT', 'http://localhost:9090/app/v1/updateTurn', HangManTurn);
+    sendHttpRequest('PUT', 'http://192.168.0.7:9090/app/v1/updateTurn', HangManTurn);
 
 }
 

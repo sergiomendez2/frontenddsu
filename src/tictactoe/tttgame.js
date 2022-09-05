@@ -48,7 +48,7 @@ async function createTicTacToeTurn(){
 
   const turnedCreated = await sendHttpRequest(
       'POST',
-      'http://localhost:9090/app/v1/startGameTTT',tttTurn);
+      'http://192.168.0.7:9090/app/v1/startGameTTT',tttTurn);
 
   turnId = turnedCreated.id_turn;
   playerO = turnedCreated.playerO;
@@ -92,7 +92,7 @@ function endGame(draw) {
         winner: null,
         draw:true
     };
-    sendHttpRequest( 'PUT', 'http://localhost:9090/app/v1/updateTurnTTT',tttTurnCompleted);
+    sendHttpRequest( 'PUT', 'http://192.168.0.7:9090/app/v1/updateTurnTTT',tttTurnCompleted);
     winningMessageTextElement.innerText = 'Draw!'
 
   } else {
@@ -104,7 +104,7 @@ function endGame(draw) {
             winner: circleTurn ? playerO : playerX,
             isDraw:false
         };
-        sendHttpRequest( 'PUT', 'http://localhost:9090/app/v1/updateTurnTTT',tttTurnCompleted);
+        sendHttpRequest( 'PUT', 'http://192.168.0.7:9090/app/v1/updateTurnTTT',tttTurnCompleted);
     }
   }
   winningMessageElement.classList.add('show')

@@ -7,7 +7,7 @@ async function getPlayersBYTypeGame() {
     typeGame = document.getElementById('typeGame').value;
     const responseData = await sendHttpRequest(
         'GET',
-        `http://localhost:9090/app/v1/getStatisticsByTypeGame/${typeGame}`,
+        `http://192.168.0.7:9090/app/v1/getStatisticsByTypeGame/${typeGame}`,
     );
     statis = responseData;
 
@@ -20,7 +20,7 @@ async function getPlayersBYTypeGame() {
 async function getAllStatistics() {
     const responseData = await sendHttpRequest(
         'GET',
-        'http://localhost:9090/app/v1/getStatisticList'
+        'http://192.168.0.7:9090/app/v1/getStatisticList'
     );
     statis = responseData;
 

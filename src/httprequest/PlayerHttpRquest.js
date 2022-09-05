@@ -24,7 +24,7 @@ async function getAllPlayers() {
 async function listPlayersInTable() {
     const responseData = await sendHttpRequest(
         'GET',
-        'http://localhost:9090/app/v1/getListOfPlayers',
+        'http://192.168.0.7:9090/app/v1/getListOfPlayers',
     );
     const list = responseData;
 
@@ -76,13 +76,13 @@ async function createPlayer() {
     }
    sendHttpRequest(
        'POST',
-       'http://localhost:9090/app/v1/createPlayer', Player);
+       'http://192.168.0.7:9090/app/v1/createPlayer', Player);
 
 }
 
 async function deletePlayer() {
     const id = document.getElementById('playerID').value;
-    sendHttpRequest('DELETE', `http://localhost:9090/app/v1/deletePlayer/${id}`);
+    sendHttpRequest('DELETE', `http://192.168.0.7:9090/app/v1/deletePlayer/${id}`);
 }
 
 async function updatePlayer() {
@@ -102,7 +102,7 @@ async function updatePlayer() {
             name: document.getElementById('typePlayer').options[document.getElementById('typePlayer').selectedIndex].text
         }
     }
-    sendHttpRequest('PUT', 'http://localhost:9090/app/v1/updatePlayer', Player);
+    sendHttpRequest('PUT', 'http://192.168.0.7:9090/app/v1/updatePlayer', Player);
 }
 
 export { getAllPlayers, listPlayersInTable, createPlayer, deletePlayer, updatePlayer};
